@@ -19,7 +19,9 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-
+import InventoryPage from '../InventoryPage/InventoryPage';
+import AddItem from '../AddItem/AddItem';
+import UpdateItem from '../UpdateItem/UpdateItem';
 import './App.css';
 
 function App() {
@@ -66,6 +68,30 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/inventory"
+          >
+            <InventoryPage/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/add"
+          >
+            <AddItem/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/update"
+          >
+            <UpdateItem/>
           </ProtectedRoute>
 
           <Route
