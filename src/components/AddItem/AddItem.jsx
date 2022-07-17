@@ -22,6 +22,8 @@ function AddItem(props) {
   }
 
   const addItem = ()=>{
+    // new item object
+    // dispatch with new item as payload 
 console.log ('in addItem')
 
   }
