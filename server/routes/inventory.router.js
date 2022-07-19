@@ -6,7 +6,7 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-  const queryString = `SELECT * FROM inventory WHERE ID = 2`;
+  const queryString = `SELECT * FROM INVENTORY JOIN category ON category.id = category_id WHERE inventory.id = 2;`;
   pool.query (queryString).then((results)=>{
     res.send (results.rows);
   }).catch ((err)=>{

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
+
 import './AddItem.css';
 
 // Basic functional component structure for React with default state
@@ -21,6 +22,10 @@ function AddItem(props) {
     setNewNotes (event.target.value);
   }
 
+  const changeCategory=()=>{
+    setCurrentCategory (event.target.value);
+  }
+
   const addItem = ()=>{
     // new item object
     // dispatch with new item as payload 
@@ -32,6 +37,10 @@ console.log ('in addItem')
       <h2>{heading}</h2>
         <input type="text" placeholder="item"onChange={event => setItem (event)}></input>
         <input type="text" placeholder="notes"onChange={event => setNotes(event)}></input>
+        <select onChange={changeCategory}>
+          <option>movies</option>
+          <option>toys</option>
+        </select>
         <button onClick={addItem}>Add Item</button>
         <p>{JSON.stringify (newItem)},{JSON.stringify(newNotes)}</p>
     </div>

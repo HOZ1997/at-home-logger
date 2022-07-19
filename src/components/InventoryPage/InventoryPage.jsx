@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+import InventoryList from '../InventoryList/InventoryList';
+
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -19,7 +21,8 @@ function InventoryPage(props) {
     <div>
       <h2>{heading}</h2>
       <p>{JSON.stringify (store)}</p>
-      {/* map through store of inventory to show on DOM */}
+      {/* store inventory */}
+      <InventoryList inventories={store.inventory}/>
     </div>
   );
 }
