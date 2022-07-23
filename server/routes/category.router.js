@@ -1,14 +1,15 @@
 const express = require('express');
 const pool = require('../modules/pool');
-const router = express.Router(); 
+const router = express.Router();
 
 /**
  * GET route template
  */
 router.get('/', (req, res) => {
+    console.log('GET request to /category');
   const queryString = `SELECT * FROM category`;
-  pool.query (queryString).then((results)=>{
-    res.send (results.rows);
+  pool.query(queryString).then((results)=>{
+    res.send(results.rows);
   }).catch ((err)=>{
     console.log (err);
     res.sendStatus(500);
@@ -16,10 +17,10 @@ router.get('/', (req, res) => {
 });
 
 // router.put('/', (req,res)=> {
-//   const queryString = `UPDATE category SET item WHERE id=$2;`; 
-//   const values = [req.query.category_name, req.query.id]; 
+//   const queryString = `UPDATE category SET item WHERE id=$2;`;
+//   const values = [req.query.category_name, req.query.id];
 //   pool.query( queryString, values).then((results)=>{
-//     res.sendStatus(200); 
+//     res.sendStatus(200);
 //   }).catch((err)=>{
 //     console.log (err);
 //     res.sendStatus(500);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import './AddItem.css';
 
@@ -6,68 +6,78 @@ import './AddItem.css';
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
 function AddItem() {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-  const dispatch = useDispatch();
-  const categories = useSelector((store) => store.categories);
- // const store = useSelector((store )=>store);
+    // Using hooks we're creating local state for a "heading" variable with
+    // a default value of 'Functional Component'
+    const dispatch=useDispatch();
+    const categories=useSelector((store) => store.category);
+    // const store = useSelector((store )=>store);
 
-  useEffect(()=>{
-    //dispatch({type: 'FETCH_INVENTORY'});
-    dispatch({type: 'FETCH_CATEGORY'});
-  }, []);
-
-
-  const [heading, setHeading] = useState('Add Item');
-   const [newItem, setNewItem] = useState('');
-  const [newNotes, setNewNotes] = useState('');
-  const [category_id, setCategory_id] = useState('');
+    useEffect(() => {
+        //dispatch({type: 'FETCH_INVENTORY'});
+        dispatch({type: 'FETCH_CATEGORY'});
+    }, []);
 
 
-  const setItem = (event)=>{
-    setNewItem (event.target.value);
-  }
+    const [heading, setHeading]=useState('Add Item');
+    const [newItem, setNewItem]=useState('');
+    const [newNotes, setNewNotes]=useState('');
+    const [category_id, setCategory_id]=useState('');
 
-  const setNotes = (event)=>{
-    setNewNotes (event.target.value);
-  }
 
-  const changeCategory=(event)=>{
-   setCategory (event.target.value);
-   console.log ('in change category');
-  }
+    const setItem=(event) => {
+        setNewItem(event.target.value);
+    }
 
-  const addItem = ()=>{
-   // new item object
-    // const newItemObject ={
-    //   item: newItem,
-    //   notes: newNotes
-    // }
-    // dispatch with new item as payload 
-  console.log ('in addItem') //newItemObject);
-  // dispatch ({type: 'ADD_ITEM', payload: newItemObject});
-  }
-  return (
-    
-    <div>
-   
-      <h2>{heading}</h2>
-       
+    const setNotes=(event) => {
+        setNewNotes(event.target.value);
+    }
 
-        <select onChange={changeCategory}>
-          {categories.map (category => (
-           <option key={category.id} value={category.id}>{category.category_name}</option>
-          ))}
-        </select>
+    const changeCategory=(event) => {
+        setCategory(event.target.value);
+        console.log('in change category');
+    }
 
-      <input type="text" placeholder="item"onChange={event => setItem (event)}></input>
-              <input type="text" placeholder="notes"onChange={event => setNotes(event)}></input> 
+    const addItem=() => {
+        // new item object
+        // const newItemObject ={
+        //   item: newItem,
+        //   notes: newNotes
+        // }
+        // dispatch with new item as payload
+        console.log('in addItem') //newItemObject);
+        // dispatch ({type: 'ADD_ITEM', payload: newItemObject});
+    }
+    return (
 
-        {/* <p>{JSON.stringify (newItem)},{JSON.stringify(newNotes)}{JSON.stringify(newItemObject)}</p> */}
-        <button onClick={addItem}>Add Item</button>
-     
-    </div>
-  );
+        <div>
+            {categories.length === 0 ? (
+                <div>Loading...</div>
+            ) : (
+                <div>In Here Now</div>
+            )}
+
+            <h3>{JSON.stringify(categories)}</h3>
+            <select onChange={changeCategory}>
+                {categories.map(category => (
+                    <option key={category.id} value={category.id}>{category.category_name}</option>
+                ))}
+            </select>
+
+            <h2>{heading}</h2>
+
+
+            <select onChange={changeCategory}>
+
+            </select>
+
+            <input type="text" placeholder="item" onChange={event => setItem(event)}></input>
+            <input type="text" placeholder="notes" onChange={event => setNotes(event)}></input>
+
+            {/* <p>{JSON.stringify (newItem)},{JSON.stringify(newNotes)}{JSON.stringify(newItemObject)}</p> */}
+            <button onClick={addItem}>Add Item</button>
+
+        </div>
+    );
 }
 
 export default AddItem;

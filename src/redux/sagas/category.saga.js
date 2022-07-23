@@ -5,6 +5,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* fetchCategory() {
   try {
     const response = yield axios.get('/api/category');
+    console.log('response', response);
     yield put({ type: 'SET_CATEGORY', payload: response.data });
   } catch (error) {
     console.log('Category get request failed', error);
