@@ -6,7 +6,7 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-  const queryString = `SELECT * FROM INVENTORY JOIN category ON category.id = category_id WHERE inventory.id = 2;`;
+  const queryString = `SELECT * FROM INVENTORY JOIN category ON category.id = category_id;`;
   pool.query (queryString).then((results)=>{
     res.send (results.rows);
   }).catch ((err)=>{
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
  */ // POST route code here
 router.post('/', (req, res) => {
  const queryString = `INSERT INTO "inventory" (item, category_id, location_id, status_id, package_id) VALUES ($1, $2, $3, $4, $5)`;
- values = [req.body.item, req.body.category_id, req.body.location_id, req.body.status-id, req.body.package_id]
+ values = [req.body.item, req.body.category_id, req.body.location_id, req.body.status_id, req.body.package_id]
 pool.query (queryString.values).then ((results)=>{
   res.sendStatus (200); 
 }).catch((err)=>{
