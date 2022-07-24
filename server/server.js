@@ -11,6 +11,9 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const inventoryRouter = require('./routes/inventory.router');
 const categoryRouter = require('./routes/category.router');
+const locationRouter = require('./routes/location.router');
+const statusRouter = require('./routes/status.router');
+const packagingRouter = require('./routes/packaging.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -27,7 +30,9 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/inventory', inventoryRouter);
 app.use('/api/category', categoryRouter);
-
+app.use('/api/location', locationRouter);
+app.use('/api/status', statusRouter);
+app.use('/api/packaging', packagingRouter);
 // Serve static files
 app.use(express.static('build'));
 

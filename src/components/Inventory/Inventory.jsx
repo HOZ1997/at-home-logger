@@ -13,23 +13,23 @@ function Inventory(props) {
 
   return (
     
-     
+    <div>  
       <table>
-
-<tr>
-    <th>Item</th>
-    <th>Category</th>
-    <th>Notes</th>
-  </tr>
-        
+ 
+       
         <tr>
-        <td>{props.inventory.item}</td>
-        <td> {props.inventory.category_name}</td>
-        <td> {props.inventory.notes}</td>
-    
+          <td>{props.inventory.item}</td>
+          <td> {props.inventory.category_name}</td>
+          <td> {props.inventory.location_name}</td>
+          <td> {props.inventory.status_name}</td>
+          <td> {props.inventory.packaging_name}</td>
+          <td> {props.inventory.notes}</td>
+          <td> {props.inventory.reorder}</td> 
+          <td> {props.inventory.donate}</td>
+          <td> {props.inventory.date}</td>
         </tr>
      </table>
-   
+     </div>  
   );
 }
 

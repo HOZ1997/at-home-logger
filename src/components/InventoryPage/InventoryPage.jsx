@@ -20,7 +20,20 @@ function InventoryPage(props) {
   return (
     <div>
       <h2>{heading}</h2>
-      <p>{JSON.stringify (store)}</p>
+      <table>
+      <tr>
+          <th>Item</th>
+          <th>Category</th>
+          <th>Location</th>
+          <th>Status</th>
+          <th>Packaging</th>
+          <th>Notes</th>
+          <th>Reorder</th>
+          <th>Donate</th>
+          <th>Date</th>
+        </tr>
+        </table>
+      {/* <p>{JSON.stringify (store)}</p> */}
       {/* store inventory */}
       <InventoryList inventories={store.inventory}/>
     </div>
