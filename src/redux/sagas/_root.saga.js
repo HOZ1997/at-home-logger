@@ -7,6 +7,7 @@ import categorySaga from './category.saga';
 import locationSaga from './location.saga';
 import statusSaga from './status.saga';
 import packagingSaga from './packaging.saga';
+import addingSaga from './adding.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -24,6 +25,7 @@ export default function* rootSaga() {
     categorySaga(),
     locationSaga(),
     statusSaga(),
-    packagingSaga()
+    packagingSaga(),
+    addingSaga()
   ]);
 }

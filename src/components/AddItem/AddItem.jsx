@@ -13,7 +13,7 @@ function AddItem() {
     const locations=useSelector((store) => store.location);
     const statuses=useSelector((store) => store.status);
     const packages=useSelector((store) => store.packaging);
-    const newItemInventory=useSelector((store) => store.newItemInventory);
+    //const addingTo=useSelector((store) => store.newItemInventory);
     const donations=useSelector((store) => store.donations);
     // const store = useSelector((store )=>store);
 
@@ -76,25 +76,29 @@ const changePackaging=(event) => {
 
     const addItem=() => {
         // new item object
-         const newItemInventory ={
-            item: newItem,
-            category_id: selectCategory,
-            location_id: selectLocation,
-            packaging_id: selectPackaging,
-            status_id: selectStatus,
-            notes: newNotes,
-            reorder: newReorder,
-            donated: newDonated,
-         }
+        //  const newItemInventory ={
+        //     // item: newItem,
+        //     // category_id: selectCategory,
+        //     // location_id: selectLocation,
+        //     // packaging_id: selectPackaging,
+        //     // status_id: selectStatus,
+        //     // notes: newNotes,
+        //     // reorder: newReorder,
+        //     // donated: newDonated,
+        // }
         // dispatch with new item as payload
-        console.log('in addItem', newItemInventory);
-         dispatch ({type: 'ADD_ITEM', payload: newItemInventory});
+        console.log('in addItem') //newItemInventory);
+        //  dispatch ({type: 'ADD_ITEM', payload: newItemInventory});
     }
     return (
 
         <div>
           <h2>{heading}</h2>
         <div>
+        <label for="Item"> Item</label><br>
+            </br>
+            <input type="text" placeholder="item" onChange={event => setItem(event)}></input><br></br>
+
             {categories.length === 0 ? (
                 <div>Loading...</div>
             ) : (
@@ -147,9 +151,7 @@ const changePackaging=(event) => {
                 ))}
             </select><br></br>
             
-            <label for="Item"> Item</label><br>
-            </br>
-            <input type="text" placeholder="item" onChange={event => setItem(event)}></input><br></br>
+          
             
             <label for="Item"> Notes</label><br></br>
             <input type="text" placeholder="notes" onChange={event => setNotes(event)}></input><br></br>
@@ -158,8 +160,10 @@ const changePackaging=(event) => {
             <label for="reorder"> Reorder</label>
             <input type="checkbox" id="donated" name="donated" value="Donated"onChange={event => setDonated(event)}></input>
             <label for="donated"> Donated</label>
-             <p>{JSON.stringify (newItem)},{JSON.stringify(newNotes)}{JSON.stringify(newItemInventory)}</p>
             <button onClick={addItem}>Add Item</button>
+             
+             {/* <p>{JSON.stringify(newItemInventory)}</p> */}
+           
             </div>
         </div>
     );

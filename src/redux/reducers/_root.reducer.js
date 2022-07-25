@@ -6,6 +6,7 @@ import category from './category.reducer';
 import location from './location.reducer';
 import status from './status.reducer'
 import packaging from './packaging.reducer'
+import adding from './adding.reducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   category,
   location,
   status,
-  packaging
+  packaging,
+  adding
 });
 
 export default rootReducer;
