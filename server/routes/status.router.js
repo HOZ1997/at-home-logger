@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
     console.log('GET request to /status');
-  const queryString = `SELECT * FROM status`;
+  const queryString = `SELECT * FROM status ORDER BY ID`;
   pool.query(queryString).then((results)=>{
     res.send(results.rows);
   }).catch ((err)=>{

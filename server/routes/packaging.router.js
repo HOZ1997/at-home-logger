@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
     console.log('GET request to /packaging');
-  const queryString = `SELECT * FROM packaging`;
+  const queryString = `SELECT * FROM packaging ORDER BY ID`;
   pool.query(queryString).then((results)=>{
     res.send(results.rows);
   }).catch ((err)=>{

@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
     console.log('GET request to /category');
-  const queryString = `SELECT * FROM category`;
+  const queryString = `SELECT * FROM category ORDER BY ID`;
   pool.query(queryString).then((results)=>{
     res.send(results.rows);
   }).catch ((err)=>{

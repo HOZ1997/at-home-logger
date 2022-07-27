@@ -6,7 +6,7 @@ import './LandingPage.css';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
 function LandingPage() {
-  const [heading, setHeading] = useState('Welcome');
+  const [heading, setHeading] = useState('Welcome to At Home Logger!');
   const history = useHistory();
 
   const onLogin = (event) => {
@@ -19,7 +19,7 @@ function LandingPage() {
 
       <div className="grid">
         <div className="grid-col grid-col_8">
-          <p>At Home Logger</p>
+          {/* <p>At Home Logger</p>
 
           <p>
           At Home Logger
@@ -27,7 +27,7 @@ function LandingPage() {
 
           <p>
           At Home Logger
-          </p>
+          </p> */}
         </div>
         <div className="grid-col grid-col_4">
           <RegisterForm />

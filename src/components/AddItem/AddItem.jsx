@@ -154,7 +154,7 @@ const changePackaging=(event) => {
                 <div>Packaging</div>
             )}
 
-             <h3>{JSON.stringify(packages)}</h3>
+             {/* <h3>{JSON.stringify(packages)}</h3> */}
             <select onChange={changePackaging}>
                 {packages.map(packaging => (
                     <option key={packaging.id} value={packaging.id}>{packaging.packaging_name}</option>
@@ -173,7 +173,7 @@ const changePackaging=(event) => {
             <button onClick={addItem}>Add Item</button>
              
              {/* <p>{JSON.stringify(newItem, selectCategory)}</p> */}
-           <p>{JSON.stringify (store)}</p>
+           {/* <p>{JSON.stringify (store)}</p> */}
             </div>
         </div>
     );

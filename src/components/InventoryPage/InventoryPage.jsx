@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import InventoryList from '../InventoryList/InventoryList';
 
 
@@ -8,7 +9,8 @@ import InventoryList from '../InventoryList/InventoryList';
 // component name TemplateFunction with the name for the new component.
 function InventoryPage(props) {
   const dispatch = useDispatch();
-
+  const history = useHistory ();
+  
   useEffect(()=>{
     dispatch({type: 'FETCH_INVENTORY'});
   }, []);
@@ -17,9 +19,16 @@ function InventoryPage(props) {
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Inventory All');
 
+  const addItem = (event)=> {
+    history.push ('/add')
+  }
+
   return (
     <div>
       <h2>{heading}</h2>
+
+      <button onClick={addItem}>Add Item</button>
+      
       <table>
       <tr>
           <th>Item</th>
@@ -29,9 +38,11 @@ function InventoryPage(props) {
           <th>Packaging</th>
           <th>Notes</th>
           <th>Date</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
         </table>
-        
+
       {/* <p>{JSON.stringify (store)}</p> */}
       {/* store inventory */}
       <InventoryList inventories={store.inventory}/>

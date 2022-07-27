@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
     console.log('GET request to /location');
-  const queryString = `SELECT * FROM location`;
+  const queryString = `SELECT * FROM location ORDER BY ID`;
   pool.query(queryString).then((results)=>{
     res.send(results.rows);
   }).catch ((err)=>{
