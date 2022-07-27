@@ -13,9 +13,9 @@ function AddItem() {
     const locations=useSelector((store) => store.location);
     const statuses=useSelector((store) => store.status);
     const packages=useSelector((store) => store.packaging);
-    //const addingTo=useSelector((store) => store.newItemInventory);
+    const inventory=useSelector((store) => store.inventory );
     const donations=useSelector((store) => store.donations);
-    // const store = useSelector((store )=>store);
+     const store = useSelector((store )=>store);
 
     useEffect(() => {
         dispatch({type: 'FETCH_LOCATION'});
@@ -32,26 +32,33 @@ function AddItem() {
     const [selectLocation, setLocation]=useState('');
     const [selectStatus, setStatus]=useState('');
     const [selectPackaging, setPackaging]=useState('');
-    const [newDonated, setNewDonated]=useState('');
-    const [newReorder, setNewReorder]=useState('');
+   // const [isCheckedDonated, setNewDonated]=useState('');
+   // const [isCheckedReorder, setNewReorder]=useState('');
+    //const [newDate, setNewDate]=useState('');
 
     const setItem=(event) => {
         setNewItem(event.target.value);
     }
-
     const setNotes=(event) => {
         setNewNotes(event.target.value);
     }
 
-    const setDonated=(event) => {
-      setNewDonated(event.target.value);
-  }
-
-
-    const setReorder=(event) => {
-      setNewReorder(event.target.value);
-  }
-
+  //   const setDonated=() => {
+  //     console.log('donated checked');
+  //     if (isCheckedDonated){
+  //       setNewDonated(true);
+  //     }
+      
+  // }
+  //   const setReorder=() => {
+  //     console.log('reorder is checked')
+  //     if (isCheckedReorder){
+  //       setNewReorder(true);
+  //     }
+ // }
+//   const setDate=(event) => {
+//     setNewDate(event.target.value);
+// }
 
     const changeCategory=(event) => {
         setCategory(event.target.value);
@@ -71,24 +78,27 @@ const changePackaging=(event) => {
   setPackaging(event.target.value);
   console.log('in change packaging');
 
-  
+
+
 }
 
     const addItem=() => {
         // new item object
-        //  const newItemInventory ={
-        //     // item: newItem,
-        //     // category_id: selectCategory,
-        //     // location_id: selectLocation,
-        //     // packaging_id: selectPackaging,
-        //     // status_id: selectStatus,
-        //     // notes: newNotes,
-        //     // reorder: newReorder,
-        //     // donated: newDonated,
-        // }
+         const newItemInventory ={
+           item: newItem,
+           category_id: selectCategory,
+           location_id: selectLocation,
+           packaging_id: selectPackaging,
+          status_id: selectStatus,
+          notes: newNotes,
+          // reorder: isCheckedReorder,
+          // donated: isCheckedDonated,
+          //date: newDate
+        }
         // dispatch with new item as payload
-        console.log('in addItem') //newItemInventory);
-        //  dispatch ({type: 'ADD_ITEM', payload: newItemInventory});
+        console.log('in addItem', newItemInventory);
+         dispatch ({type: 'ADD_ITEM', payload: newItemInventory});
+        //  <p>{JSON.stringify(newItem)}</p>
     }
     return (
 
@@ -144,7 +154,7 @@ const changePackaging=(event) => {
                 <div>Packaging</div>
             )}
 
-            {/* <h3>{JSON.stringify(packages)}</h3> */}
+             <h3>{JSON.stringify(packages)}</h3>
             <select onChange={changePackaging}>
                 {packages.map(packaging => (
                     <option key={packaging.id} value={packaging.id}>{packaging.packaging_name}</option>
@@ -156,14 +166,14 @@ const changePackaging=(event) => {
             <label for="Item"> Notes</label><br></br>
             <input type="text" placeholder="notes" onChange={event => setNotes(event)}></input><br></br>
             
-            <input type="checkbox" id="reorder" name="reorder" value="Reorder"onChange={event => setReorder(event)}></input>
+            {/* <input type="checkbox" id="reorder" name="reorder" value="Reorder"onChange={event => setReorder(event)}></input>
             <label for="reorder"> Reorder</label>
             <input type="checkbox" id="donated" name="donated" value="Donated"onChange={event => setDonated(event)}></input>
-            <label for="donated"> Donated</label>
+            <label for="donated"> Donated</label> */}
             <button onClick={addItem}>Add Item</button>
              
-             {/* <p>{JSON.stringify(newItemInventory)}</p> */}
-           
+             {/* <p>{JSON.stringify(newItem, selectCategory)}</p> */}
+           <p>{JSON.stringify (store)}</p>
             </div>
         </div>
     );

@@ -28,11 +28,10 @@ function InventoryPage(props) {
           <th>Status</th>
           <th>Packaging</th>
           <th>Notes</th>
-          <th>Reorder</th>
-          <th>Donate</th>
           <th>Date</th>
         </tr>
         </table>
+        
       {/* <p>{JSON.stringify (store)}</p> */}
       {/* store inventory */}
       <InventoryList inventories={store.inventory}/>
