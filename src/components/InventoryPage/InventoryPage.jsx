@@ -10,7 +10,7 @@ import InventoryList from '../InventoryList/InventoryList';
 function InventoryPage(props) {
   const dispatch = useDispatch();
   const history = useHistory ();
-  
+
   useEffect(()=>{
     dispatch({type: 'FETCH_INVENTORY'});
   }, []);
@@ -38,8 +38,7 @@ function InventoryPage(props) {
           <th>Packaging</th>
           <th>Notes</th>
           <th>Date</th>
-          <th>Edit</th>
-          <th>Delete</th>
+          <th></th>
         </tr>
         </table>
 
