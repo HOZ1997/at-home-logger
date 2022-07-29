@@ -3,17 +3,26 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_INVENTORY" actions
 
-function* deleteItem(action) {
+// function* deleteItem(action) {
   
-  try {
-    const response = yield axios.delete('api/inventory/id', action.payload.id);
-    yield put({ type: 'FETCH_INVENTORY', payload: response.data });
+//   try {
+//     const response = yield axios.delete('api/inventory/id', action.payload.id);
+//     yield put({ type: 'FETCH_INVENTORY', payload: response.data });
     
-  } catch (error) {
-    console.log('delete id request failed', error);
-  }
-}
-
+//   } catch (error) {
+//     console.log('delete id request failed', error);
+//   }
+// }
+// function* updateInventory(action) {
+  
+//   try {
+//     const response = yield axios.put(`api/inventory/${action.payload.id}`);
+//     //yield put({ type: 'FETCH_INVENTORY', payload: response.data });
+//     fetchInventory();
+//   } catch (error) {
+//     console.log('Update Inventory put request failed', error);
+//   }
+// }
 
 
 
@@ -43,8 +52,8 @@ function* fetchInventory() {
 function* inventorySaga() {
   yield takeLatest('ADD_ITEM', addingItem);
   yield takeLatest('FETCH_INVENTORY', fetchInventory);
-  yield takeLatest('DELETE_ITEM', deleteItem);
-  
+ // yield takeLatest('DELETE_ITEM', deleteItem);
+ // yield takeLatest('UPDATE_INVENTORY', updateInventory);
 }
 
 export default inventorySaga;

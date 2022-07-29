@@ -37,7 +37,7 @@ function InventoryPage(props) {
           <th>Status</th>
           <th>Packaging</th>
           <th>Notes</th>
-          <th>Date</th>
+          <th>Original Date</th>
           <th></th>
         </tr>
         </table>

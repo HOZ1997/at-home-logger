@@ -25,7 +25,8 @@ export default function* rootSaga() {
     categorySaga(),
     locationSaga(),
     statusSaga(),
-    packagingSaga()// removed addingItem saga combining with Inventory
+    packagingSaga(),
+    // removed addingItem saga combining with Inventory
     //addingItemSaga
   ]);
 }

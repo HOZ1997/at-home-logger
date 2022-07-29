@@ -78,8 +78,6 @@ const changePackaging=(event) => {
   setPackaging(event.target.value);
   console.log('in change packaging');
 
-
-
 }
 
     const addItem=() => {
@@ -91,6 +89,7 @@ const changePackaging=(event) => {
            packaging_id: selectPackaging,
           status_id: selectStatus,
           notes: newNotes,
+          user_id: store.user.id
           // reorder: isCheckedReorder,
           // donated: isCheckedDonated,
           //date: newDate

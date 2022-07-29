@@ -21,8 +21,8 @@ router.get('/', (req, res) => {
  */ // POST route code here
 router.post('/', (req, res) => {
   console.log("in inventory post");
- const queryString =`INSERT INTO "inventory"(item, category_id, location_id, status_id, packaging_id, notes ) VALUES ($1, $2, $3, $4, $5, $6 )`;
- values = [req.body.item, req.body.category_id, req.body.location_id, req.body.status_id, req.body.packaging_id, req.body.notes ];
+ const queryString =`INSERT INTO "inventory"(item, category_id, location_id, status_id, packaging_id, notes,user_id ) VALUES ($1, $2, $3, $4, $5, $6, $7 )`;
+ values = [req.body.item, req.body.category_id, req.body.location_id, req.body.status_id, req.body.packaging_id, req.body.notes, req.body.user_id ];
 pool.query (queryString, values).then ((results)=>{
   res.sendStatus (200); 
 }).catch((err)=>{
@@ -32,8 +32,9 @@ pool.query (queryString, values).then ((results)=>{
 });
 
 router.put('/', (req,res)=> {
-  const queryString = `UPDATE "inventory" SET item WHERE id=$2;`; 
-  const values = [req.query.item, req.query.id]; 
+  console.log ("in inventory put")
+  const queryString = `UPDATE "inventory" SET (item, category_id, location_id, status_id, packaging_id, notes,user_id ) VALUES ($1, $2, $3, $4, $5, $6, $7 )`; 
+  const values = [req.query.item, req.query.category_id, req.query.location_id, req.query.status_id, req.query.packaging_id, req.query.notes, req.query.user_id]; 
   pool.query(queryString, values).then((results)=>{
     res.sendStatus(200); 
   }).catch((err)=>{
