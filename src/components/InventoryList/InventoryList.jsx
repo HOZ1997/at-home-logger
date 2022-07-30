@@ -14,7 +14,7 @@ function InventoryList(props) {
   return (
     <div>
       {/* <h2>{heading}</h2> */}
-      {props.inventories.map ((inventory)=>(<Inventory inventory={inventory}/>))}
+      {props.inventories.map((inventory)=>(<Inventory inventory={inventory}/>))}
     </div>
   );
 }

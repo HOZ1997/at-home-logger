@@ -17,6 +17,7 @@ function InventoryPage(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
+  const inventory = useSelector((store) => store.inventory);
   const [heading, setHeading] = useState('Inventory All');
 
   const addItem = (event)=> {
@@ -28,7 +29,7 @@ function InventoryPage(props) {
       <h2>{heading}</h2>
 
       <button onClick={addItem}>Add Item</button>
-      
+
       <table>
       <tr>
           <th>Item</th>
@@ -42,7 +43,7 @@ function InventoryPage(props) {
         </tr>
         </table>
 
-      {/* <p>{JSON.stringify (store)}</p> */}
+      <p>{JSON.stringify(inventory)}</p>
       {/* store inventory */}
       <InventoryList inventories={store.inventory}/>
     </div>

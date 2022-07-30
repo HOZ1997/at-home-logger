@@ -33,9 +33,9 @@ const [newStatus, setNewStatus]=useState('');
 const [newPackaging, setNewPackaging]=useState('');
 
  const toggleEditMode =() =>{
-   setEditMode (!editMode);
+   setEditMode(!editMode);
  }
- 
+
 
  useEffect(() => {
   dispatch({type: 'FETCH_LOCATION'});
@@ -48,35 +48,34 @@ const [newPackaging, setNewPackaging]=useState('');
 
 
  const setUpdateItem=(event)=>{
-   setNewItem ({ ...newItem, item: event.target.value});
+   setNewItem(event.target.value);
    console.log ('in edit  item', newItem);
  }
- 
+
  const setUpdateCategory=(event)=>{
-  setNewCategory ({ ...newCategory, category: event.target.value});
+  setNewCategory(event.target.value);
   console.log ("in edit category", newCategory);
 }
 const setUpdateLocation=(event)=>{
-  setNewLocation ({ ...newLocation, location: event.target.value});
+  setNewLocation (event.target.value);
   console.log ("in edit location", newLocation);
 }
 const setUpdateStatus=(event)=>{
-  setNewStatus ({ ...newStatus, status: event.target.value});
+  setNewStatus (event.target.value);
   console.log ("in edit status", newStatus);
 }
 
 const setUpdatePackaging=(event)=>{
-  setNewPackaging ({ ...newPackaging, packaging: event.target.value});
+  setNewPackaging (event.target.value);
   console.log ("in edit package", newPackaging);
 }
 const setUpdateNotes=(event)=>{
-  setNewNotes ({ ...newNotes, notes: event.target.value});
+  setNewNotes (event.target.value);
   console.log ("in edit package", newNotes);
 }
 
 const updateInventory =()=>{
   const inventoryToSend={
-    ...newItem,
     id: props.inventory.id,
     item: newItem, //props.inventory.item,
     category_id: newCategory,
@@ -92,7 +91,7 @@ const updateInventory =()=>{
 }
 
   return (
-    <div>  
+    <div>
           {
             editMode?
             <span>
@@ -122,7 +121,7 @@ const updateInventory =()=>{
             )}
 
             {/* <h3>{JSON.stringify(locations)}</h3> */}
-            
+
             <td><select onChange={event => setUpdateLocation (event)}>
                 {locations.map(location => (
                     <option key={location.id} value={location.id}>{location.location_name}</option>
@@ -161,13 +160,13 @@ const updateInventory =()=>{
               <td><input type="text" placeholder={props.inventory.notes} onChange={event =>setUpdateNotes(event)}/></td>
               <td><div>{props.inventory.date}</div></td>
             <td><button onClick={toggleEditMode}>Cancel</button><button onClick={updateInventory}>Submit </button></td>
-            </table> 
+            </table>
             </span>
             :
             <span>
               <table>
             <td>{props.inventory.item} </td>
-            <td>{props.inventory.category_name}</td>   
+            <td>{props.inventory.category_name}</td>
             <td>{props.inventory.location_name}</td>
             <td>{props.inventory.status_name}</td>
             <td> {props.inventory.packaging_name} </td>
@@ -175,10 +174,10 @@ const updateInventory =()=>{
             <td> {props.inventory.date}</td>
             <td><button onClick={toggleEditMode}>Edit</button></td>
             </table>
-            </span>     
-}   
+            </span>
+}
  {/* {JSON.stringify(inventoryToSend) } */}
-     </div>  
+     </div>
   );
 }
 
