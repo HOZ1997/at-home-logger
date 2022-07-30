@@ -17,7 +17,7 @@ CREATE TABLE "inventory" (
   "category_id" int not null,
   "location_id" int not null,
   "status_id" int not null,
-  "package_id" int not null,
+  "packaging_id" int not null,
   "notes" text,
   "reorder" boolean default false,
   "donated" boolean default false,
@@ -83,7 +83,7 @@ INSERT INTO "status" ("status_name") VALUES ('family review');
 INSERT INTO "status" ("status_name") VALUES ('1 year hold');
 
 
- INSERT INTO "inventory" ("item", "category_id", "location_id", "status_id", "package_id", "notes", "user_id")VALUES ('soap', 1, 1, 1, 1, 'may need to reorder soon', 1 ); 
+ INSERT INTO "inventory" ("item", "category_id", "location_id", "status_id", "packaging_id", "notes", "user_id")VALUES ('soap', 1, 1, 1, 1, 'may need to reorder soon', 1 ); 
 
 
  

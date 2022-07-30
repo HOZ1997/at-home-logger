@@ -32,9 +32,9 @@ pool.query (queryString, values).then ((results)=>{
 });
 
 router.put('/update', (req,res)=> {
-  console.log ("in inventory put", req.query );
+  console.log ("in inventory put", req.body );
   const queryString = `UPDATE "inventory" SET item = $1, category_id =$2, location_id, = $3, status_id = $4, packaging_id = $5, notes = $6 user_id = $7,  WHERE id = $8)`; 
-  const values = [req.query.item, req.query.category_id, req.query.location_id, req.query.status_id, req.query.packaging_id, req.query.notes, req.query.user_id, req.query.id];
+  const values = [req.body.item, req.body.category_id, req.body.location_id, req.body.status_id, req.body.packaging_id, req.body.notes, req.body.user_id, req.body.id];
   pool.query(queryString, values).then((results)=>{
     res.sendStatus(200); 
   }).catch((err)=>{

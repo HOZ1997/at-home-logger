@@ -67,7 +67,7 @@ const setUpdateStatus=(event)=>{
 
 const setUpdatePackaging=(event)=>{
   setNewPackaging ({ ...newPackaging, packaging: event.target.value});
-  console.log ("in edit package", newPackage);
+  console.log ("in edit package", newPackaging);
 }
 const setUpdateNotes=(event)=>{
   setNewNotes ({ ...newNotes, notes: event.target.value});
