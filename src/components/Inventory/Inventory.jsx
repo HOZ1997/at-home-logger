@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
-
-
 import './Inventory.css';
+
+
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
@@ -19,20 +18,19 @@ function Inventory(props) {
   const statuses=useSelector((store) => store.status);
   const packages=useSelector((store) => store.packaging);
   const store = useSelector((store )=>store);
-  const [selectCategory, setCategory]=useState('');
-  const [selectLocation, setLocation]=useState('');
-  const [selectStatus, setStatus]=useState('');
-  const [selectPackaging, setPackaging]=useState('');
-
-
+  //const [selectCategory, setCategory]=useState('');
+  //const [selectLocation, setLocation]=useState('');
+  //const [selectStatus, setStatus]=useState('');
+ // const [selectPackaging, setPackaging]=useState('');
 
  const history = useHistory ();
  const [editMode, setEditMode] =useState (false)
-const [newItem, setNewItem] = useState ({});
-
-
-
-
+const [newItem, setNewItem] = useState ('');
+const [newNotes, setNewNotes]=useState('');
+const [newCategory, setNewCategory]=useState('');
+const [newLocation, setNewLocation]=useState('');
+const [newStatus, setNewStatus]=useState('');
+const [newPackaging, setNewPackaging]=useState('');
 
  const toggleEditMode =() =>{
    setEditMode (!editMode);
@@ -48,50 +46,51 @@ const [newItem, setNewItem] = useState ({});
 
 
 
-//  const item =  props.item;
-//  const updateItem = (event)=> {
-//    history.push ('/update')
-//  }
-
-//  const deleteItem = ()=> {
-//   console.log( "in delete", item);
-//   dispatch ({type: 'DELETE_ITEM', payload: item});
-// }
-// const changeCategory=(event) => {
-//   setCategory(event.target.value);
-//   console.log('in change category');
-// }
-
 
  const setUpdateItem=(event)=>{
    setNewItem ({ ...newItem, item: event.target.value});
+   console.log ('in edit  item', newItem);
  }
  
  const setUpdateCategory=(event)=>{
-  setNewItem ({ ...newItem, category: event.target.value});
+  setNewCategory ({ ...newCategory, category: event.target.value});
+  console.log ("in edit category", newCategory);
 }
 const setUpdateLocation=(event)=>{
-  setNewItem ({ ...newItem, location: event.target.value});
+  setNewLocation ({ ...newLocation, location: event.target.value});
+  console.log ("in edit location", newLocation);
 }
 const setUpdateStatus=(event)=>{
-  setNewItem ({ ...newItem, status: event.target.value});
+  setNewStatus ({ ...newStatus, status: event.target.value});
+  console.log ("in edit status", newStatus);
 }
 
 const setUpdatePackaging=(event)=>{
-  setNewItem ({ ...newItem, packaging: event.target.value});
+  setNewPackaging ({ ...newPackaging, packaging: event.target.value});
+  console.log ("in edit package", newPackage);
 }
 const setUpdateNotes=(event)=>{
-  setNewItem ({ ...newItem, packaging: event.target.value});
+  setNewNotes ({ ...newNotes, notes: event.target.value});
+  console.log ("in edit package", newNotes);
 }
 
 const updateInventory =()=>{
   const inventoryToSend={
     ...newItem,
-    id: props.inventory.id
-    
-  }
-  dispatch ({type: 'UPDATE_INVENTORY', payload: inventoryToSend})
+    id: props.inventory.id,
+    item: newItem, //props.inventory.item,
+    category_id: newCategory,
+    location_id: newLocation, //props.inventory.location_id,
+    status_id: newStatus, //props.inventory.status_id,
+    packaging_id: newPackaging, //props.inventory.packaging_id,
+    notes: newNotes, //props.inventory.notes,
+    date: props.inventory.date,
+    user_id: store.user.id
+  };
+  console.log('in update Inventory', inventoryToSend);
+  dispatch ({type: 'UPDATE_INVENTORY', payload: inventoryToSend});
 }
+
   return (
     <div>  
           {
@@ -112,7 +111,7 @@ const updateInventory =()=>{
                 {categories.map(category => (
                     <option key={category.id} value={category.id}>{category.category_name}</option>
                 ))}
-            </select></td><br></br>
+            </select></td>
 
 
               {/* <td><input type="text" placeholder={props.inventory.location_name} onChange={event =>setUpdateLocation(event)}/> */}
@@ -178,7 +177,7 @@ const updateInventory =()=>{
             </table>
             </span>     
 }   
-{/* {JSON.stringify(newItem) } */}
+ {/* {JSON.stringify(inventoryToSend) } */}
      </div>  
   );
 }
