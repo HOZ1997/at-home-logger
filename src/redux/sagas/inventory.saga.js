@@ -3,7 +3,17 @@ import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_INVENTORY" actions
 
+// function* deleteItem(action) {
 
+//   try {
+//     const response = yield axios.delete('api/inventory/id', action.payload.id);
+//     yield put({ type: 'FETCH_INVENTORY', payload: response.data });
+
+//   } catch (error) {
+//     console.log('delete id request failed', error);
+//   }
+// }
+ 
 function* deleteInventory(action) {
   //delete inventory from db 
   try {
@@ -21,9 +31,9 @@ function* deleteInventory(action) {
   try {
     console.log ("data in update inventory"); //response.data
    const response = yield axios.put('api/inventory/update', action.payload);
-   //yield put({ type: 'SET_INVENTORY', payload: response.data });
-  fetchInventory(); 
-  } catch (error) {
+   yield put({ type: 'SET_INVENTORY', payload: response.data });
+   fetchInventory();
+   } catch (error) {
     console.log('Update Inventory put request failed', error);
     }
  }

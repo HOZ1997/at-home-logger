@@ -8,7 +8,7 @@ import Inventory from '../Inventory/Inventory';
 function InventoryList(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
+  //const store = useSelector((store) => store);
   //const [heading, setHeading] = useState('Inventory');
   const inventory=useSelector((store) => store.inventory);
   const dispatch = useDispatch();
@@ -21,11 +21,7 @@ function InventoryList(props) {
   return (
     <div>
       {/* <h2>{heading}</h2> */}
-
-
-      {props.inventories.map ((inventory)=>(<Inventory inventory={inventory}/>))}
-      {/* <p>{JSON.stringify (store.inventory)}</p> */}
-     
+      {props.inventories.map((inventory)=>(<Inventory inventory={inventory}/>))}
     </div>
   );
 }

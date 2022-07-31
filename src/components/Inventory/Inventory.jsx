@@ -17,7 +17,7 @@ function Inventory(props) {
   const locations=useSelector((store) => store.location);
   const statuses=useSelector((store) => store.status);
   const packages=useSelector((store) => store.packaging);
-  const inventory=useSelector((store) => store.inventory);
+  //const inventory=useSelector((store) => store.inventory);
   const store = useSelector((store )=>store);
   //const [selectCategory, setCategory]=useState('');
   //const [selectLocation, setLocation]=useState('');
@@ -34,45 +34,50 @@ const [newStatus, setNewStatus]=useState('');
 const [newPackaging, setNewPackaging]=useState('');
 
  const toggleEditMode =() =>{
-   setEditMode (!editMode);
- }
- 
-
- useEffect(() => {
-  dispatch({type: 'FETCH_LOCATION'});
+   setEditMode(!editMode);
+    dispatch({type: 'FETCH_LOCATION'});
   dispatch({type: 'FETCH_CATEGORY'});
   dispatch({type: 'FETCH_STATUS'});
   dispatch({type: 'FETCH_PACKAGING'});
+ }
+
+
+ useEffect(() => {
+  // dispatch({type: 'FETCH_LOCATION'});
+  // dispatch({type: 'FETCH_CATEGORY'});
+  // dispatch({type: 'FETCH_STATUS'});
+  // dispatch({type: 'FETCH_PACKAGING'});
   dispatch({type: 'FETCH_INVENTORY'});
 }, []);
 
 
- 
-const setUpdateItem=(event)=>{
-  setNewItem(event.target.value);
-  console.log ('in edit  item', newItem);
-}
 
-const setUpdateCategory=(event)=>{
- setNewCategory(event.target.value);
- console.log ("in edit category", newCategory);
+
+ const setUpdateItem=(event)=>{
+   setNewItem(event.target.value);
+   console.log ('in edit  item', newItem);
+ }
+
+ const setUpdateCategory=(event)=>{
+  setNewCategory(event.target.value);
+  console.log ("in edit category", newCategory);
 }
 const setUpdateLocation=(event)=>{
- setNewLocation (event.target.value);
- console.log ("in edit location", newLocation);
+  setNewLocation (event.target.value);
+  console.log ("in edit location", newLocation);
 }
 const setUpdateStatus=(event)=>{
- setNewStatus (event.target.value);
- console.log ("in edit status", newStatus);
+  setNewStatus (event.target.value);
+  console.log ("in edit status", newStatus);
 }
 
 const setUpdatePackaging=(event)=>{
- setNewPackaging (event.target.value);
- console.log ("in edit package", newPackaging);
+  setNewPackaging (event.target.value);
+  console.log ("in edit package", newPackaging);
 }
 const setUpdateNotes=(event)=>{
- setNewNotes (event.target.value);
- console.log ("in edit package", newNotes);
+  setNewNotes (event.target.value);
+  console.log ("in edit package", newNotes);
 }
 
 
@@ -90,7 +95,7 @@ const updateInventory =()=>{
 };
   console.log('in update Inventory', inventoryToSend);
   dispatch ({type: 'UPDATE_INVENTORY', payload: inventoryToSend});
-  //history.push ('/inventory')
+  history.push ('/inventory');
   
  
   //dispatch({type: 'FETCH_INVENTORY'}), [];
@@ -112,7 +117,7 @@ const updateInventory =()=>{
 
 
   return (
-    <div>  
+    <div>
           {
             editMode?
             <span>
@@ -142,7 +147,7 @@ const updateInventory =()=>{
             )}
 
             {/* <h3>{JSON.stringify(locations)}</h3> */}
-            
+
             <td><select onChange={event => setUpdateLocation (event)}>
                 {locations.map(location => (
                     <option key={location.id} value={location.id}>{location.location_name}</option>
@@ -188,7 +193,7 @@ const updateInventory =()=>{
             <span>
               <table>
             <td>{props.inventory.item} </td>
-            <td>{props.inventory.category_name}</td>   
+            <td>{props.inventory.category_name}</td>
             <td>{props.inventory.location_name}</td>
             <td>{props.inventory.status_name}</td>
             <td> {props.inventory.packaging_name} </td>
@@ -197,10 +202,10 @@ const updateInventory =()=>{
             <td><button onClick={toggleEditMode}>Edit</button></td>
             
             </table>
-            </span>     
-}   
-{/* {JSON.stringify(inventoryToSend)} */}
-     </div>  
+            </span>
+}
+ {/* {JSON.stringify(inventoryToSend) } */}
+     </div>
   );
 }
 

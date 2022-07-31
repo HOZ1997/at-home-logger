@@ -10,14 +10,14 @@ import InventoryList from '../InventoryList/InventoryList';
 function InventoryPage(props) {
   const dispatch = useDispatch();
   const history = useHistory ();
-  const inventory=useSelector((store) => store.inventory);
+  //const inventory=useSelector((store) => store.inventory);
   const store = useSelector((store) => store);
   useEffect(()=>{
     dispatch({type: 'FETCH_INVENTORY'});
   }, []);
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
- 
+
   const [heading, setHeading] = useState('Inventory All');
 
   const addItem = (event)=> {
@@ -29,7 +29,7 @@ function InventoryPage(props) {
       <h2>{heading}</h2>
 
       <button onClick={addItem}>Add Item</button>
-      
+
       <table>
       <tr>
           <th>Item</th>
