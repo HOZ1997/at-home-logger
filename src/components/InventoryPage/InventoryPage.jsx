@@ -10,13 +10,14 @@ import InventoryList from '../InventoryList/InventoryList';
 function InventoryPage(props) {
   const dispatch = useDispatch();
   const history = useHistory ();
-
+  const inventory=useSelector((store) => store.inventory);
+  const store = useSelector((store) => store);
   useEffect(()=>{
     dispatch({type: 'FETCH_INVENTORY'});
   }, []);
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
+ 
   const [heading, setHeading] = useState('Inventory All');
 
   const addItem = (event)=> {
@@ -42,7 +43,7 @@ function InventoryPage(props) {
         </tr>
         </table>
 
-      {/* <p>{JSON.stringify (store)}</p> */}
+      {/* <p>{JSON.stringify (store.inventory)}</p> */}
       {/* store inventory */}
       <InventoryList inventories={store.inventory}/>
     </div>

@@ -1,3 +1,4 @@
+
 const inventoryReducer = (state = [], action) => {
     switch (action.type) {
        case 'SET_INVENTORY':
