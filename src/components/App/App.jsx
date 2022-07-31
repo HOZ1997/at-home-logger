@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import InventoryPage from '../InventoryPage/InventoryPage';
 import AddItem from '../AddItem/AddItem';
+import UpdateItem from '../UpdateItem/UpdateItem';
 import './App.css';
 
 function App() {
@@ -85,12 +86,20 @@ function App() {
             <AddItem/>
           </ProtectedRoute>
 
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/update"
+          >
+            <UpdateItem/>
+          </ProtectedRoute>
+
           <Route
             exact
             path="/login"
           >
             {user.id ?
-              // If the user is already logged in,
+              // If the user is already logged in, 
               // redirect to the /user page
               <Redirect to="/user" />
               :
@@ -104,7 +113,7 @@ function App() {
             path="/registration"
           >
             {user.id ?
-              // If the user is already logged in,
+              // If the user is already logged in, 
               // redirect them to the /user page
               <Redirect to="/user" />
               :
@@ -118,7 +127,7 @@ function App() {
             path="/home"
           >
             {user.id ?
-              // If the user is already logged in,
+              // If the user is already logged in, 
               // redirect them to the /user page
               <Redirect to="/user" />
               :

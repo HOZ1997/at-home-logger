@@ -13,8 +13,8 @@ function AddItem() {
     const locations=useSelector((store) => store.location);
     const statuses=useSelector((store) => store.status);
     const packages=useSelector((store) => store.packaging);
-    //const inventory=useSelector((store) => store.inventory );
-    //const donations=useSelector((store) => store.donations);
+    const inventory=useSelector((store) => store.inventory );
+    const donations=useSelector((store) => store.donations);
      const store = useSelector((store )=>store);
 
     useEffect(() => {

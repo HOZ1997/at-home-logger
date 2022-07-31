@@ -6,11 +6,9 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-  //console.log ('in inventory get req.query.:', req.query );
-  //console.log ('in inventory get req.body.:', req.body );
-  //console.log ('in inventory get req.params.:', req.query );
-  const queryString = `SELECT * FROM INVENTORY JOIN category ON category_id = category.id JOIN location ON location_id = location.id JOIN status ON status_id = status.id JOIN packaging ON packaging_id = packaging.id;`;
-  pool.query ( queryString ).then((results)=>{
+  console.log ("in inventory get");
+  const queryString = `SELECT * FROM INVENTORY JOIN category ON category.id = category_id JOIN location ON location.id = location_id JOIN status ON status.id = status_id JOIN packaging ON packaging.id = packaging_id;`;
+  pool.query(queryString).then((results)=>{
     res.send (results.rows);
   }).catch ((err)=>{
     console.log (err);
@@ -21,10 +19,10 @@ router.get('/', (req, res) => {
 /**
  * POST route template
  */ // POST route code here
-router.post('/add', (req, res) => {
-  console.log("in inventory post", req.body);
+router.post('/', (req, res) => {
+  console.log("in inventory post");
  const queryString =`INSERT INTO "inventory"(item, category_id, location_id, status_id, packaging_id, notes,user_id ) VALUES ($1, $2, $3, $4, $5, $6, $7 )`;
- const values = [req.body.item, req.body.category_id, req.body.location_id, req.body.status_id, req.body.packaging_id, req.body.notes, req.body.user_id ];
+ values = [req.body.item, req.body.category_id, req.body.location_id, req.body.status_id, req.body.packaging_id, req.body.notes, req.body.user_id ];
 pool.query (queryString, values).then ((results)=>{
   res.sendStatus (200);
 }).catch((err)=>{
@@ -44,14 +42,12 @@ router.put('/update', (req,res)=> {
     res.sendStatus(500);
   });
 });
-//req.body.id
 
-router.delete ('/delete', (req,res)=>{
-  console.log ('in inventory delete', req.query)
-  const queryString = `DELETE FROM inventory WHERE id =$1;`;
-  const values = [req.query.id];
-  pool.query(queryString, values).then((results)=>{
-    res.sendStatus(200); 
+router.delete ('/:id', (req,res)=>{
+  const queryString = 'DELETE FROM inventory WHERE id=$1';
+  values = [req.params.id];
+  pool.query(queryString.value).then(( results)=>{
+    res.sendStatus(200);
   }).catch ((err)=>{
     console.log(err);
    res.sendStatus(500);

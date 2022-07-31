@@ -17,7 +17,6 @@ function Inventory(props) {
   const locations=useSelector((store) => store.location);
   const statuses=useSelector((store) => store.status);
   const packages=useSelector((store) => store.packaging);
-  //const inventory=useSelector((store) => store.inventory);
   const store = useSelector((store )=>store);
   //const [selectCategory, setCategory]=useState('');
   //const [selectLocation, setLocation]=useState('');
@@ -35,19 +34,14 @@ const [newPackaging, setNewPackaging]=useState('');
 
  const toggleEditMode =() =>{
    setEditMode(!editMode);
-    dispatch({type: 'FETCH_LOCATION'});
-  dispatch({type: 'FETCH_CATEGORY'});
-  dispatch({type: 'FETCH_STATUS'});
-  dispatch({type: 'FETCH_PACKAGING'});
  }
 
 
  useEffect(() => {
-  // dispatch({type: 'FETCH_LOCATION'});
-  // dispatch({type: 'FETCH_CATEGORY'});
-  // dispatch({type: 'FETCH_STATUS'});
-  // dispatch({type: 'FETCH_PACKAGING'});
-  dispatch({type: 'FETCH_INVENTORY'});
+  dispatch({type: 'FETCH_LOCATION'});
+  dispatch({type: 'FETCH_CATEGORY'});
+  dispatch({type: 'FETCH_STATUS'});
+  dispatch({type: 'FETCH_PACKAGING'});
 }, []);
 
 
@@ -80,7 +74,6 @@ const setUpdateNotes=(event)=>{
   console.log ("in edit package", newNotes);
 }
 
-
 const updateInventory =()=>{
   const inventoryToSend={
     id: props.inventory.id,
@@ -92,29 +85,10 @@ const updateInventory =()=>{
     notes: newNotes, //props.inventory.notes,
     date: props.inventory.date,
     user_id: store.user.id
-};
+  };
   console.log('in update Inventory', inventoryToSend);
   dispatch ({type: 'UPDATE_INVENTORY', payload: inventoryToSend});
-  history.push ('/inventory');
-  
- 
-  //dispatch({type: 'FETCH_INVENTORY'}), [];
-
-};
-
-
-
-// const deleteInventory = ()=>{
-//   // const inventoryIdToDelete ={
-//     //id: props.inventory.id
-//     console.log ('in delete',  props.inventory)
-//     dispatch ({type: 'DELETE_INVENTORY', payload: props.inventory.id});
-//   }; 
-  // console.log( "in delete", payload, inventoryIdToDelete);
- 
- 
-
-
+}
 
   return (
     <div>
@@ -186,8 +160,7 @@ const updateInventory =()=>{
               <td><input type="text" placeholder={props.inventory.notes} onChange={event =>setUpdateNotes(event)}/></td>
               <td><div>{props.inventory.date}</div></td>
             <td><button onClick={toggleEditMode}>Cancel</button><button onClick={updateInventory}>Submit </button></td>
-            {/* <button onClick={deleteInventory}>Delete</button></td> */}
-            </table> 
+            </table>
             </span>
             :
             <span>
@@ -200,7 +173,6 @@ const updateInventory =()=>{
             <td> {props.inventory.notes}</td>
             <td> {props.inventory.date}</td>
             <td><button onClick={toggleEditMode}>Edit</button></td>
-            
             </table>
             </span>
 }

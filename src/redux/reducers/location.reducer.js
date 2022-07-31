@@ -1,4 +1,5 @@
 const locationReducer = (state = [], action) => {
+    console.log('locationReducer', action.payload);
     switch (action.type) {
        case 'SET_LOCATION':
           return action.payload;

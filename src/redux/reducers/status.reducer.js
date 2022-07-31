@@ -1,4 +1,5 @@
 const statusReducer = (state = [], action) => {
+    console.log('statusReducer', action.payload);
     switch (action.type) {
        case 'SET_STATUS':
           return action.payload;
