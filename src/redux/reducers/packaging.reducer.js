@@ -1,5 +1,4 @@
 const packagingReducer = (state = [], action) => {
-    console.log('packagingReducer', action.payload);
     switch (action.type) {
        case 'SET_PACKAGING':
           return action.payload;
