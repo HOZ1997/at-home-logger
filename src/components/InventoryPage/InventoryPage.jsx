@@ -43,7 +43,7 @@ function InventoryPage(props) {
         </tr>
         </table>
 
-      <p>{JSON.stringify(inventory)}</p>
+      {/* <p>{JSON.stringify(inventory)}</p> */}
       {/* store inventory */}
       <InventoryList inventories={store.inventory}/>
     </div>

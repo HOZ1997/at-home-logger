@@ -21,7 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import InventoryPage from '../InventoryPage/InventoryPage';
 import AddItem from '../AddItem/AddItem';
-import UpdateItem from '../UpdateItem/UpdateItem';
+//import UpdateItem from '../UpdateItem/UpdateItem';
 import './App.css';
 
 function App() {
@@ -86,13 +86,13 @@ function App() {
             <AddItem/>
           </ProtectedRoute>
 
-          <ProtectedRoute
+          {/* <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
             path="/update"
           >
             <UpdateItem/>
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
           <Route
             exact

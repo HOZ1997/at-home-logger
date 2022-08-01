@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import './AddItem.css';
 
 // Basic functional component structure for React with default state
@@ -9,6 +10,7 @@ function AddItem() {
     // Using hooks we're creating local state for a "heading" variable with
     // a default value of 'Functional Component'
     const dispatch=useDispatch();
+    const history = useHistory ();
     const categories=useSelector((store) => store.category);
     const locations=useSelector((store) => store.location);
     const statuses=useSelector((store) => store.status);
@@ -16,6 +18,7 @@ function AddItem() {
     const inventory=useSelector((store) => store.inventory );
     const donations=useSelector((store) => store.donations);
      const store = useSelector((store )=>store);
+     
 
     useEffect(() => {
         dispatch({type: 'FETCH_LOCATION'});
@@ -32,6 +35,7 @@ function AddItem() {
     const [selectLocation, setLocation]=useState('');
     const [selectStatus, setStatus]=useState('');
     const [selectPackaging, setPackaging]=useState('');
+    
    // const [isCheckedDonated, setNewDonated]=useState('');
    // const [isCheckedReorder, setNewReorder]=useState('');
     //const [newDate, setNewDate]=useState('');
@@ -80,7 +84,7 @@ const changePackaging=(event) => {
 
 }
 
-    const addItem=() => {
+    const addItem=(event) => {
         // new item object
          const newItemInventory ={
            item: newItem,
@@ -97,6 +101,7 @@ const changePackaging=(event) => {
         // dispatch with new item as payload
         console.log('in addItem', newItemInventory);
          dispatch ({type: 'ADD_ITEM', payload: newItemInventory});
+           history.push ('/inventory');
         //  <p>{JSON.stringify(newItem)}</p>
     }
     return (

@@ -13,6 +13,7 @@ function Inventory(props) {
   // const store = useSelector((store) => store);
   // const [heading, setHeading] = useState('Functional Component');
   const dispatch = useDispatch();
+  const history = useHistory ();
   const categories=useSelector((store) => store.category);
   const locations=useSelector((store) => store.location);
   const statuses=useSelector((store) => store.status);
@@ -23,7 +24,7 @@ function Inventory(props) {
   //const [selectStatus, setStatus]=useState('');
  // const [selectPackaging, setPackaging]=useState('');
 
- const history = useHistory ();
+
  const [editMode, setEditMode] =useState (false)
 const [newItem, setNewItem] = useState ('');
 const [newNotes, setNewNotes]=useState('');
@@ -45,6 +46,20 @@ const [newPackaging, setNewPackaging]=useState('');
 }, []);
 
 
+const deleteInventory = ()=>{
+      dispatch ({type: 'DELETE_INVENTORY', payload: props.inventory.id})
+      console.log ('in delete',  props.inventory)
+      history.push ('/inventory');
+     };
+
+// const deleteInventory = ()=>{
+//   // const inventoryIdToDelete ={
+//     //id: props.inventory.id
+//     console.log ('in delete',  props.inventory)
+//     dispatch ({type: 'DELETE_INVENTORY', payload: props.inventory.id});
+//   }; 
+  // console.log( "in delete", payload, inventoryIdToDelete);
+ 
 
 
  const setUpdateItem=(event)=>{
@@ -88,6 +103,7 @@ const updateInventory =()=>{
   };
   console.log('in update Inventory', inventoryToSend);
   dispatch ({type: 'UPDATE_INVENTORY', payload: inventoryToSend});
+  history.push ('/inventory');
 }
 
   return (
@@ -159,7 +175,8 @@ const updateInventory =()=>{
 
               <td><input type="text" placeholder={props.inventory.notes} onChange={event =>setUpdateNotes(event)}/></td>
               <td><div>{props.inventory.date}</div></td>
-            <td><button onClick={toggleEditMode}>Cancel</button><button onClick={updateInventory}>Submit </button></td>
+            <td><button onClick={toggleEditMode}>Cancel</button><button onClick={updateInventory}>Submit </button>
+            <button onClick={deleteInventory}>Delete</button></td>
             </table>
             </span>
             :

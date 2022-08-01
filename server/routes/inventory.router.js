@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
   console.log ("in inventory get");
-  const queryString = `SELECT * FROM INVENTORY JOIN category ON category.id = category_id JOIN location ON location.id = location_id JOIN status ON status.id = status_id JOIN packaging ON packaging.id = packaging_id;`;
+  const queryString = `SELECT inventory.id, item, category_name, location_name, status_name, packaging_name,notes, date FROM INVENTORY JOIN category ON category.id = category_id JOIN location ON location.id = location_id JOIN status ON status.id = status_id JOIN packaging ON packaging.id = packaging_id;`;
   pool.query(queryString).then((results)=>{
     res.send (results.rows);
   }).catch ((err)=>{
@@ -43,14 +43,16 @@ router.put('/update', (req,res)=> {
   });
 });
 
-router.delete ('/:id', (req,res)=>{
-  const queryString = 'DELETE FROM inventory WHERE id=$1';
-  values = [req.params.id];
-  pool.query(queryString.value).then(( results)=>{
-    res.sendStatus(200);
+//req.body.id
+router.delete ('/delete', (req,res)=>{
+  console.log ('in inventory delete', req.query)
+  const queryString = `DELETE FROM inventory WHERE id =$1;`;
+  const values = [req.query.id];
+  pool.query(queryString, values).then((results)=>{
+    res.sendStatus(200); 
   }).catch ((err)=>{
     console.log(err);
-   res.sendStatus(500);
+   res.sendStatus(500); 
   });
 });
 
