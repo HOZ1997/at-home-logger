@@ -13,7 +13,7 @@ function AboutPage() {
         <p>Up next for the project....</p>
 
         <h3>Technologies Used</h3>
-        <p>React Redux Node Express Postgres SQL CSS</p>
+        <p>React Redux Node Express SQL CSS</p>
         
         <h3>Thank you! </h3>
         <h4>Dorian Cohort!! and their families!</h4>
@@ -21,7 +21,7 @@ function AboutPage() {
         <p> Prime! Thank you for staring a part time program. </p>
         <h4>Thank you to the following for your ongoing support for my Prime journey!</h4>
            <p>Prime Alumni - Sarah and Alicia!</p>
-           <p>C.H. Robinson  - My TMC Delivery team, Carter, Zach, HatCHRy,  Luke!</p>
+           <p>C.H. Robinson  - My TMC team, Carter, Zach, Luke and HatCHRy!</p>
         <p>Family - Mom, Dad, Laurel, Chris, Derek, Kathryn, Ella, Brandon and Palmer!</p>
         <p>Friends - Thank you for being understanding for all I have had to miss. </p>
         <p>Whippa and Kal Pals!</p>

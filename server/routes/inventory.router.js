@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
   console.log ("in inventory get");
-  const queryString = `SELECT inventory.id, item, category_name, location_name, status_name, packaging_name,notes, date FROM INVENTORY JOIN category ON category.id = category_id JOIN location ON location.id = location_id JOIN status ON status.id = status_id JOIN packaging ON packaging.id = packaging_id ORDER BY inventory.id ASC;`;
+  const queryString = `SELECT inventory.id, item, category_name, location_name, status_name, packaging_name,notes, date FROM INVENTORY JOIN category ON category.id = category_id JOIN location ON location.id = location_id JOIN status ON status.id = status_id JOIN packaging ON packaging.id = packaging_id ORDER BY inventory.id DESC;`;
   pool.query(queryString).then((results)=>{
     res.send (results.rows);
   }).catch ((err)=>{
