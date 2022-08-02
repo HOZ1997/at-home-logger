@@ -1,3 +1,46 @@
-/* input {
-    width: 50%;
-   */
+input {
+    width: 40%;
+    height: 50px;
+}
+
+/* body {
+    font-family: "Times New Roman", Times, serif;
+    margin: 0px;
+    background-color:  silver;
+   text-align: center;
+   margin: 5px;
+  } */
+
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-color: #014041;
+    border-width: 1px 1px 3px;
+    border-radius: 4px;
+    background-color: grey;
+    color: #f8f8f8;
+    font-size: 1.1rem;
+    outline: 0;
+    cursor: pointer;
+  }
+  
+  .btn_sizeMin {
+    min-height: 50px;
+    min-width: 100px;
+  }
+  
+  .btn_sizeSm {
+    padding: 10px 15px;
+    font-size: 0.8rem;
+  }
+  
+  .btn_sizeFull {
+    display: block;
+    width: 100%;
+  }
+  
+  .btn:hover {
+    background-color: pink;
+    text-decoration: none;
+  }

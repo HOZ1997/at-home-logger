@@ -174,9 +174,9 @@ const updateInventory =()=>{
 
 
               <td><input type="text" placeholder={props.inventory.notes} onChange={event =>setUpdateNotes(event)}/></td>
-              <td><div>{props.inventory.date}</div></td>
-            <td><button onClick={toggleEditMode}>Cancel</button><button onClick={updateInventory}>Submit </button>
-            <button onClick={deleteInventory}>Delete</button></td>
+              <td><div class="ex1">{props.inventory.date}</div></td>
+            <td><button type="button" className="btn" onClick={toggleEditMode}>Cancel</button><button type="button" className="btn" onClick={updateInventory}>Submit </button>
+            <button type="button" className="btn" onClick={deleteInventory}>Delete</button></td>
             </table>
             </span>
             :
@@ -189,10 +189,17 @@ const updateInventory =()=>{
             <td> {props.inventory.packaging_name} </td>
             <td> {props.inventory.notes}</td>
             <td> {props.inventory.date}</td>
-            <td><button onClick={toggleEditMode}>Edit</button></td>
+            <td><button type="button" className="btn" onClick={toggleEditMode}>Edit</button></td>
             </table>
             </span>
 }
+
+  
+
+
+
+
+
  {/* {JSON.stringify(inventoryToSend) } */}
      </div>
   );

@@ -15,7 +15,7 @@
 }
 
 .nav-title {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 500;
   color: lightgrey;
   padding-left: 10px;
@@ -31,8 +31,8 @@
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
-  font-size: 15px;
-
+  font-size: 17px;
+  font-family: "Times New Roman", Times, serif;
   /* these last two make the logout button in
   the nav bar look like another link */
   border: none;

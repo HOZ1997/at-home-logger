@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import InventoryPage from '../InventoryPage/InventoryPage';
 import AddItem from '../AddItem/AddItem';
+
 //import UpdateItem from '../UpdateItem/UpdateItem';
 import './App.css';
 

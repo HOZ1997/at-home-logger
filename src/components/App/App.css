@@ -5,7 +5,7 @@ body,
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Times New Roman", Times, serif;
   margin: 0px;
   background-color:  silver;
  text-align: center;
@@ -40,6 +40,8 @@ Button
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .btn_sizeMin {
@@ -110,6 +112,8 @@ Form Treatment
 }
 
 input {
-  margin: 5px;
-  margin-bottom: 10px;
+  margin: 10px;
+  width: 150px;
+  height: 30px;
+ 
 }

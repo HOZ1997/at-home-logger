@@ -28,7 +28,7 @@ function AddItem() {
     }, []);
 
 
-    const [heading, setHeading]=useState('Add Item');
+    const [heading, setHeading]=useState('Add Log');
     const [newItem, setNewItem]=useState('');
     const [newNotes, setNewNotes]=useState('');
     const [selectCategory, setCategory]=useState('');
@@ -108,7 +108,8 @@ const changePackaging=(event) => {
 
         <div>
           <h2>{heading}</h2>
-        <div>
+        <div id="example1"> 
+        
         <label for="Item"> Item</label><br>
             </br>
             <input type="text" placeholder="item" onChange={event => setItem(event)}></input><br></br>
@@ -174,7 +175,7 @@ const changePackaging=(event) => {
             <label for="reorder"> Reorder</label>
             <input type="checkbox" id="donated" name="donated" value="Donated"onChange={event => setDonated(event)}></input>
             <label for="donated"> Donated</label> */}
-            <button onClick={addItem}>Add Item</button>
+            <button button type="button" className="btn" onClick={addItem}>Logging</button>
              
              {/* <p>{JSON.stringify(newItem, selectCategory)}</p> */}
            {/* <p>{JSON.stringify (store)}</p> */}

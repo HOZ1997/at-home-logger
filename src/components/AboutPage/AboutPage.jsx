@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './AboutPage.css';
 // This is one of our simplest components
 // It doesn't have local state,
 // It doesn't dispatch any redux actions or display any part of redux state
@@ -10,20 +10,24 @@ function AboutPage() {
     <div className="container">
       <div>
         <h2>At Home Logger</h2>
+        <p>Up next for the project....</p>
+
         <h3>Technologies Used</h3>
         <p>React Redux Node Express Postgres SQL CSS</p>
+        
         <h3>Thank you! </h3>
-        <h4>Dorian Cohort!!</h4>
+        <h4>Dorian Cohort!! and their families!</h4>
         <h4>Dev!</h4>
         <p> Prime! Thank you for staring a part time program. </p>
-        <h4>Thank you for you ongoing support for my Prime journey! </h4>
-        <p>Prime Alumni Sarah and Alicia! </p><p>Carter and Zach!</p>
-        <p>C.H. Robinson!</p>
-        <p>Family and Friends!</p>
+        <h4>Thank you to the following for your ongoing support for my Prime journey!</h4>
+           <p>Prime Alumni - Sarah and Alicia!</p>
+           <p>C.H. Robinson  - My TMC Delivery team, Carter, Zach, HatCHRy,  Luke!</p>
+        <p>Family - Mom, Dad, Laurel, Chris, Derek, Kathryn, Ella, Brandon and Palmer!</p>
+        <p>Friends - Thank you for being understanding for all I have had to miss. </p>
         <p>Whippa and Kal Pals!</p>
         <h4>Laura!</h4>
-        <p>Up Next for the project....</p>
-        <p> Here's Jonathan!</p>
+        <h5>In honor and memory of her brother Jason. </h5>
+        <p>Now! Another amazing Dorian Cohort member! </p>
       </div>
     </div>
   );

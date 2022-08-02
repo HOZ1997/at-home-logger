@@ -18,17 +18,25 @@ function InventoryPage(props) {
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
   const inventory = useSelector((store) => store.inventory);
-  const [heading, setHeading] = useState('Inventory All');
+  const [heading, setHeading] = useState('Heather Logger Directory');
 
   const addItem = (event)=> {
     history.push ('/add')
   }
 
+  // <button
+  // type="button"
+  // className="btn btn_asLink"
+  // onClick={() => {
+  //   history.push('/registration');
+  // }}
+
   return (
     <div>
       <h2>{heading}</h2>
 
-      <button onClick={addItem}>Add Item</button>
+      <button type="button" 
+      className ="btn" onClick={addItem}>Add New</button>
 
       <table>
       <tr>
