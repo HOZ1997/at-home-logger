@@ -26,7 +26,7 @@ function AboutPage() {
         <p>Friends - Thank you for being understanding for all I have had to miss. </p>
         <p>Whippa and Kal Pals!</p>
         <h4>Laura!</h4>
-        <h5>In honor and memory of her brother Jason. </h5>
+        <h5>I dedicate this to Jason, Laura's brother. </h5>
         <p>Now! Another amazing Dorian Cohort member! </p>
       </div>
     </div>
